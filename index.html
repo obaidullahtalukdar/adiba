@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adiba's World</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👶</text></svg>" type="image/svg+xml">
+    <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👶</text></svg>" type="image/svg+xml">
+</head>
+<body>
+    <div class="loading-screen">
+        <div class="loading-content">
+            <div class="milk-bottle">🍼</div>
+            <div class="loading-text">Loading Adiba's World...</div>
+        </div>
+    </div>
+    
+    <div class="emoji-background"></div>
+    
+    <main class="container">
+        <header class="site-header animate__animated animate__fadeInDown">
+            <div class="baby-emoji">👶</div>
+            <div class="title-container">
+                <h1 class="site-title">Welcome Adiba</h1>
+                <div class="title-border"></div>
+            </div>
+            <div class="baby-emoji">👶</div>
+        </header>
+
+        <section class="hero-section">
+            <div class="profile-container animate__animated animate__fadeInDown">
+                <div class="profile-frame">
+                    <img src="images/adiba.JPG" alt="Adiba Abdullah" class="profile-img">
+                    <div class="frame-decorations">
+                        <span class="toy">🎠</span>
+                        <span class="toy">🎪</span>
+                        <span class="toy">🎨</span>
+                        <span class="toy">🎭</span>
+                        <span class="toy">🐥</span>
+                        <span class="toy">🍼</span>
+                        <span class="toy">🎀</span>
+                        <span class="toy">🧸</span>
+                    </div>
+                </div>
+                <div class="name-container">
+                    <h1 class="name">Adiba Abdullah</h1>
+                    <div class="born-text-wrapper">
+                        <div class="born-text">
+                            <div class="baby-icons">
+                                <span class="baby-heart">🍼</span>
+                                <span class="born-text-content">Born on</span>
+                                <span class="baby-rattle">🎂</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="birth-details">
+                        <div class="birth-detail-item">
+                            <span class="detail-icon">📅</span>
+                            <span class="detail-text">Wednesday, December 11, 2024</span>
+                        </div>
+                        <div class="birth-detail-item">
+                            <span class="detail-icon">⏰</span>
+                            <span class="detail-text">02:30 PM</span>
+                        </div>
+                        <div class="birth-detail-item">
+                            <span class="detail-icon">📍</span>
+                            <span class="detail-text">Brahmanbaria, Bangladesh</span>
+                        </div>
+                    </div>
+                    <section class="counters-section animate__animated animate__fadeInUp">
+                        <div class="counters-container">
+                            <!-- Growing Up Journey -->
+                            <div class="counter-box growth-counter">
+                                <h2>🌟 Growing Up Journey</h2>
+                                <div class="counter-grid">
+                                    <div class="counter-item">
+                                        <span id="growth-years">00</span>
+                                        <p>Years</p>
+                                    </div>
+                                    <div class="counter-item">
+                                        <span id="growth-months">00</span>
+                                        <p>Months</p>
+                                    </div>
+                                    <div class="counter-item">
+                                        <span id="growth-days">00</span>
+                                        <p>Days</p>
+                                    </div>
+                                    <div class="counter-item">
+                                        <span id="growth-hours">00</span>
+                                        <p>Hours</p>
+                                    </div>
+                                    <div class="counter-item">
+                                        <span id="growth-minutes">00</span>
+                                        <p>Minutes</p>
+                                    </div>
+                                    <div class="counter-item">
+                                        <span id="growth-seconds">00</span>
+                                        <p>Seconds</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Next Birthday Countdown -->
+                            <div class="counter-box birthday-counter">
+                                <h2>🎂 Next Birthday In</h2>
+                                <div class="counter-grid">
+                                    <div class="counter-item">
+                                        <span id="next-years">00</span>
+                                        <p>Years</p>
+                                    </div>
+                                    <div class="counter-item">
+                                        <span id="months">00</span>
+                                        <p>Months</p>
+                                    </div>
+                                    <div class="counter-item">
+                                        <span id="days">00</span>
+                                        <p>Days</p>
+                                    </div>
+                                    <div class="counter-item">
+                                        <span id="hours">00</span>
+                                        <p>Hours</p>
+                                    </div>
+                                    <div class="counter-item">
+                                        <span id="minutes">00</span>
+                                        <p>Minutes</p>
+                                    </div>
+                                    <div class="counter-item">
+                                        <span id="seconds">00</span>
+                                        <p>Seconds</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        <div class="album-button-container animate__animated animate__fadeInUp">
+            <button class="album-button" onclick="openGallery(0)">
+                <span class="album-button-icon">📸</span>
+                <span class="album-button-text">Adiba's Album</span>
+                <div class="button-sparkles"></div>
+            </button>
+        </div>
+
+        <section class="family-section animate__animated animate__fadeInUp">
+            <h2>‍👩‍👧 Loving Family</h2>
+            <div class="family-cards">
+                <div class="family-card father-card">
+                    <div class="card-emoji">👨</div>
+                    <h3>Father</h3>
+                    <p>Abdullah Talukder</p>
+                    <div class="card-toys">
+                        <span>📱</span>
+                        <span>💻</span>
+                    </div>
+                </div>
+                <div class="family-card mother-card">
+                    <div class="card-emoji">👩</div>
+                    <h3>Mother</h3>
+                    <p>Sumaiyya Chumki</p>
+                    <div class="card-toys">
+                        <span>🎨</span>
+                        <span>🌺</span>
+                    </div>
+                </div>
+                <!-- Paternal Grandparents -->
+                <div class="family-card grandfather-card">
+                    <div class="card-emoji">👴</div>
+                    <h3>Grandfather</h3>
+                    <p>Monju Talukder</p>
+                    <div class="card-toys">
+                        <span>📚</span>
+                        <span>🌳</span>
+                    </div>
+                </div>
+                <div class="family-card grandmother-card">
+                    <div class="card-emoji">👵</div>
+                    <h3>Grandmother</h3>
+                    <p>Najma Begum</p>
+                    <div class="card-toys">
+                        <span>🧶</span>
+                        <span>🌸</span>
+                    </div>
+                </div>
+                <!-- Maternal Grandparents -->
+                <div class="family-card grandfather-card">
+                    <div class="card-emoji">👴</div>
+                    <h3>Grandfather (Nana)</h3>
+                    <p>Bokul Talukder</p>
+                    <div class="card-toys">
+                        <span>🎭</span>
+                        <span>🎪</span>
+                    </div>
+                </div>
+                <div class="family-card grandmother-card">
+                    <div class="card-emoji">👵</div>
+                    <h3>Grandmother (Nanu)</h3>
+                    <p>Lucky Begum</p>
+                    <div class="card-toys">
+                        <span>🧁</span>
+                        <span>🌺</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="floating-toys">
+        <div class="toy-item">🎈</div>
+        <div class="toy-item">🎀</div>
+        <div class="toy-item">🧸</div>
+        <div class="toy-item">🦄</div>
+        <div class="toy-item">🌈</div>
+        <div class="toy-item">🎪</div>
+        <div class="toy-item">🎨</div>
+    </div>
+
+    <div class="gallery-popup">
+        <div class="gallery-content">
+            <div class="gallery-header">
+                <h2>📸 Adiba's Photo Gallery</h2>
+                <button class="close-gallery">×</button>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Box 1 -->
+                <div class="photo-box">
+                    <div class="photo-frame">
+                        <img src="images/first.JPG" alt="Adiba's Photo">
+                    </div>
+                    <div class="photo-caption">Adiba's First Photo</div>
+                </div>
+                
+                <!-- Box 2 -->
+                <div class="photo-box">
+                    <div class="photo-frame">
+                        <img src="images/3.JPG" alt="Adiba's Photo">
+                    </div>
+                    <div class="photo-caption">Adiba's Eyes</div>
+                </div>
+                
+                <!-- Box 3 -->
+                <div class="photo-box">
+                    <div class="photo-frame">
+                        <img src="images/adiba.JPG" alt="Adiba's Photo">
+                    </div>
+                    <div class="photo-caption">Adiba Sleeping</div>
+                </div>
+                
+                <!-- Box 4 -->
+                <div class="photo-box">
+                    <div class="photo-frame">
+                        <img src="images/4.jpg" alt="Adiba's Photo">
+                    </div>
+                    <div class="photo-caption"> Sleeping More</div>
+                </div>
+                
+                <!-- Box 5 -->
+                <div class="photo-box">
+                    <div class="photo-frame">
+                        <img src="images/5.jpg" alt="Adiba's Photo">
+                    </div>
+                    <div class="photo-caption">🥱🥱💤💤😴😴</div>
+                </div>
+                
+                <!-- Box 6 -->
+                <div class="photo-box">
+                    <div class="photo-frame">
+                        <img src="images/6.jpg" alt="Adiba's Photo">
+                    </div>
+                    <div class="photo-caption">🥱🥱🥱😴😴😴</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fullscreen-viewer">
+        <button class="close-viewer">×</button>
+        <button class="nav-btn prev-btn">❮</button>
+        <div class="viewer-content">
+            <img src="" alt="Fullscreen Photo" class="viewer-image">
+        </div>
+        <button class="nav-btn next-btn">❯</button>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p class="copyright">
+                © <span id="currentYear"></span> Designed with 
+                <span class="heart-icon">❤️</span> by 
+                <a href="https://github.com/obaidullah-faruk" target="_blank" class="author-link">Obaidullah</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

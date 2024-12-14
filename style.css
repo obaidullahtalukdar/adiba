@@ -1,0 +1,3035 @@
+:root {
+    --primary-color: #FF69B4;
+    --secondary-color: #87CEEB;
+    --accent-color: #FFD700;
+    --text-color: #333;
+    --background-color: #FFF5F8;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --gradient: linear-gradient(135deg, #FFB6C1, #87CEEB);
+}
+
+/* Animated Header Styles */
+.site-header {
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.98), 
+        rgba(255, 255, 255, 0.92)
+    );
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 
+        0 5px 20px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.site-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg,
+        rgba(255, 105, 180, 0.1),
+        rgba(135, 206, 235, 0.1),
+        rgba(255, 215, 0, 0.1)
+    );
+    animation: shimmer 3s infinite;
+}
+
+.baby-emoji {
+    font-size: 2.2rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+.baby-emoji:hover {
+    transform: scale(1.2) rotate(15deg);
+}
+
+.title-container {
+    position: relative;
+    padding: 0.5rem;
+    z-index: 1;
+}
+
+.site-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    background: linear-gradient(45deg,
+        #FF1493,
+        #FF69B4,
+        #4169E1,
+        #FFD700,
+        #FF1493
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+    letter-spacing: 1px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Update animations */
+@keyframes shine {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+/* Update media queries for header */
+@media (max-width: 768px) {
+    .site-header {
+        padding: 0.8rem;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .site-title {
+        font-size: 2.2rem;
+    }
+
+    .baby-emoji {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-header {
+        padding: 0.6rem;
+        gap: 0.8rem;
+    }
+
+    .site-title {
+        font-size: 1.8rem;
+    }
+
+    .baby-emoji {
+        font-size: 1.5rem;
+    }
+}
+
+@keyframes headerFloat {
+    0%, 100% { transform: translateY(10px); }
+    50% { transform: translateY(0); }
+}
+
+@keyframes babyDance {
+    0%, 100% { transform: rotate(-8deg) scale(1); }
+    50% { transform: rotate(8deg) scale(1.1); }
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes borderRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.emoji-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient);
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.profile-container {
+    display: inline-block;
+    position: relative;
+}
+
+.profile-frame {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+    border-radius: 50%;
+    padding: 10px;
+    background: var(--gradient);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: visible;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid white;
+}
+
+/* Update frame decorations styles */
+.frame-decorations {
+    position: absolute;
+    top: -35px;
+    left: -35px;
+    width: calc(100% + 70px);
+    height: calc(100% + 70px);
+    animation: rotateFrame 30s linear infinite;
+}
+
+.frame-decorations .toy {
+    position: absolute;
+    font-size: 1.8rem;
+    transform-origin: center;
+}
+
+/* Position toys in a perfect circle */
+.frame-decorations .toy:nth-child(1) {
+    top: 0;
+    left: calc(50% - 0.9rem);
+    transform: rotate(0deg);
+}
+
+.frame-decorations .toy:nth-child(2) {
+    top: 14.64%;
+    right: 14.64%;
+    transform: rotate(45deg);
+}
+
+.frame-decorations .toy:nth-child(3) {
+    top: calc(50% - 0.9rem);
+    right: 0;
+    transform: rotate(90deg);
+}
+
+.frame-decorations .toy:nth-child(4) {
+    bottom: 14.64%;
+    right: 14.64%;
+    transform: rotate(135deg);
+}
+
+.frame-decorations .toy:nth-child(5) {
+    bottom: 0;
+    left: calc(50% - 0.9rem);
+    transform: rotate(180deg);
+}
+
+.frame-decorations .toy:nth-child(6) {
+    bottom: 14.64%;
+    left: 14.64%;
+    transform: rotate(225deg);
+}
+
+.frame-decorations .toy:nth-child(7) {
+    top: calc(50% - 0.9rem);
+    left: 0;
+    transform: rotate(270deg);
+}
+
+.frame-decorations .toy:nth-child(8) {
+    top: 14.64%;
+    left: 14.64%;
+    transform: rotate(315deg);
+}
+
+/* Remove the circular border effect */
+.profile-frame::after {
+    display: none;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .frame-decorations {
+        top: -30px;
+        left: -30px;
+        width: calc(100% + 60px);
+        height: calc(100% + 60px);
+    }
+}
+
+@media (max-width: 480px) {
+    .frame-decorations {
+        top: -25px;
+        left: -25px;
+        width: calc(100% + 50px);
+        height: calc(100% + 50px);
+    }
+}
+
+@keyframes borderRotate {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+/* Add a subtle glow effect to the emojis */
+.frame-decorations .toy {
+    filter: drop-shadow(0 0 3px rgba(255, 182, 193, 0.5));
+    transition: filter 0.3s ease;
+}
+
+.frame-decorations:hover .toy {
+    filter: drop-shadow(0 0 5px rgba(255, 182, 193, 0.8));
+}
+
+@keyframes rotateFrame {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Add hover effect to pause rotation */
+.profile-frame:hover .frame-decorations {
+    animation-play-state: paused;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .frame-decorations {
+        top: -15px;
+        left: -15px;
+        width: calc(100% + 30px);
+        height: calc(100% + 30px);
+    }
+
+    .frame-decorations .toy {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .frame-decorations {
+        top: -12px;
+        left: -12px;
+        width: calc(100% + 24px);
+        height: calc(100% + 24px);
+    }
+
+    .frame-decorations .toy {
+        font-size: 1.4rem;
+    }
+}
+
+/* Update profile frame styles to ensure consistent size */
+.profile-frame {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+    border-radius: 50%;
+    padding: 10px;
+    background: var(--gradient);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: visible;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .profile-frame {
+        width: 220px;
+        height: 220px;
+    }
+
+    .frame-decorations .toy {
+        font-size: 1.8rem;
+    }
+    
+    @keyframes rotateAround {
+        0% {
+            transform: rotate(0deg) translate(110px) rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg) translate(110px) rotate(-360deg);
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-frame {
+        width: 180px;
+        height: 180px;
+    }
+
+    .frame-decorations .toy {
+        font-size: 1.5rem;
+    }
+    
+    @keyframes rotateAround {
+        0% {
+            transform: rotate(0deg) translate(90px) rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg) translate(90px) rotate(-360deg);
+        }
+    }
+}
+
+.name {
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 3.2rem;
+    margin: 1.5rem 0;
+    padding: 1rem 2.5rem;
+    color: #FF1493;
+    background: white;
+    border-radius: 20px;
+    position: relative;
+    display: inline-block;
+    box-shadow: 
+        0 5px 15px rgba(255, 105, 180, 0.2),
+        0 0 0 4px rgba(255, 192, 203, 0.3);
+    text-shadow: 
+        3px 3px 0 #FFB6C1,
+        -1px -1px 0 #FFB6C1,
+        1px -1px 0 #FFB6C1,
+        -1px 1px 0 #FFB6C1,
+        1px 1px 0 #FFB6C1;
+    transition: transform 0.3s ease;
+}
+
+.name::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 
+        inset 0 0 10px rgba(255, 105, 180, 0.2),
+        0 0 0 4px rgba(255, 192, 203, 0.2);
+    z-index: -1;
+}
+
+.name::after {
+    display: none;
+}
+
+/* Media queries for name */
+@media (max-width: 768px) {
+    .name {
+        font-size: 2.8rem;
+        padding: 0.8rem 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .name {
+        font-size: 2.2rem;
+        padding: 0.6rem 1.5rem;
+    }
+}
+
+.birth-details {
+    background: linear-gradient(45deg, #f9f3e6, #f5ead7);
+    border-radius: 15px;
+    padding: 1.2rem 2rem;
+    margin: 1.5rem auto;
+    display: inline-flex;
+    gap: 2rem;
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.05),
+        inset 0 2px 4px rgba(255, 255, 255, 0.5),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.05);
+    position: relative;
+    max-width: 90%;
+    animation: swingPanel 6s ease-in-out infinite;
+    transform-origin: top center;
+}
+
+.birth-details::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    width: 6px;
+    height: 30px;
+    background: repeating-linear-gradient(
+        45deg,
+        #8B4513,
+        #8B4513 2px,
+        #A0522D 2px,
+        #A0522D 4px
+    );
+    transform-origin: top center;
+    animation: snakeRope 6s ease-in-out infinite;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+.birth-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    position: relative;
+    z-index: 1;
+}
+
+.detail-icon {
+    font-size: 1.4rem;
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.1));
+}
+
+.detail-text {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.1rem;
+    color: #5a4a3f;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Separator dots */
+.birth-detail-item:not(:last-child)::after {
+    content: '•';
+    position: absolute;
+    right: -1.2rem;
+    color: #8b7355;
+    opacity: 0.5;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .birth-details {
+        padding: 1rem 1.5rem;
+        gap: 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .birth-detail-item:not(:last-child)::after {
+        display: none;
+    }
+
+    .detail-text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .birth-details {
+        padding: 0.8rem 1.2rem;
+        gap: 1rem;
+        margin: 1rem auto;
+    }
+
+    .detail-icon {
+        font-size: 1.2rem;
+    }
+
+    .detail-text {
+        font-size: 0.9rem;
+    }
+}
+
+/* Countdown Section */
+.countdown-section {
+    padding: 2rem;
+    background: linear-gradient(135deg, #FFE5F1, #E5F4FF);
+    border-radius: 25px;
+    box-shadow: 
+        0 10px 30px rgba(255, 105, 180, 0.2),
+        0 0 0 15px rgba(255, 255, 255, 0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+.countdown-section h2 {
+    font-family: 'Bubblegum Sans', cursive;
+    text-align: center;
+    color: #FF1493;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 
+        3px 3px 0 #fff,
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px 1px 0 #fff;
+}
+
+.countdown-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    padding: 1rem;
+    position: relative;
+}
+
+.countdown-box {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+    box-shadow: 
+        0 8px 0 #FFB6C1,
+        0 15px 20px rgba(0, 0, 0, 0.1);
+}
+
+.countdown-box:hover {
+    transform: translateY(-5px);
+}
+
+.countdown-box span {
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 3.5rem;
+    color: #FF1493;
+    display: block;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 0 #FFB6C1;
+    position: relative;
+}
+
+.countdown-box p {
+    font-family: 'Bubblegum Sans', cursive;
+    color: #FF69B4;
+    font-size: 1.4rem;
+    margin: 0;
+    position: relative;
+}
+
+/* Add decorative elements */
+.countdown-box::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 
+        inset 0 0 10px rgba(255, 105, 180, 0.3),
+        0 0 0 5px rgba(255, 182, 193, 0.3);
+    z-index: 1;
+}
+
+/* Add floating balloons */
+.countdown-section::before,
+.countdown-section::after {
+    content: '';
+    position: absolute;
+    font-size: 2rem;
+    animation: floatBalloon 6s ease-in-out infinite;
+}
+
+.countdown-section::before {
+    left: 10%;
+    top: 10%;
+    animation-delay: 0s;
+}
+
+.countdown-section::after {
+    right: 10%;
+    top: 20%;
+    animation-delay: 3s;
+}
+
+@keyframes floatBalloon {
+    0%, 100% {
+        transform: translateY(0) rotate(5deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(-5deg);
+    }
+}
+
+/* Add bounce animation for numbers */
+@keyframes bounceNumber {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.countdown-box span {
+    animation: bounceNumber 2s ease-in-out infinite;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .countdown-section h2 {
+        font-size: 2rem;
+    }
+
+    .countdown-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .countdown-box span {
+        font-size: 2.8rem;
+    }
+
+    .countdown-box p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .countdown-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .countdown-box {
+        padding: 1rem;
+    }
+
+    .countdown-box span {
+        font-size: 2.2rem;
+    }
+
+    .countdown-box p {
+        font-size: 1rem;
+    }
+}
+
+/* Family Section */
+.family-section {
+    margin: 4rem 0;
+    text-align: center;
+}
+
+.family-section h2 {
+    font-family: 'Bubblegum Sans', cursive;
+    color: #FF1493;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 
+        2px 2px 0 rgba(255, 255, 255, 0.8),
+        -1px -1px 0 rgba(255, 255, 255, 0.8);
+    display: inline-block;
+    position: relative;
+}
+
+.family-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #FF1493, transparent);
+    border-radius: 2px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .family-section h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .family-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.2rem;
+    }
+}
+
+.family-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+/* Update Family Card Styles - Remove all animations */
+.family-card {
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    background: white;
+    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.1);
+}
+
+.card-emoji {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.card-toys {
+    margin-top: 1rem;
+}
+
+.card-toys span {
+    font-size: 1.5rem;
+    margin: 0 0.3rem;
+    display: inline-block;
+}
+
+/* Remove hover effects */
+.family-card:hover {
+    transform: none;
+    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.1);
+}
+
+.family-card:hover .card-emoji {
+    transform: none;
+}
+
+.family-card:hover .card-toys {
+    transform: none;
+}
+
+.family-card:hover .card-toys span {
+    animation: none;
+}
+
+/* Remove gradient hover effects */
+.father-card:hover,
+.mother-card:hover,
+.grandfather-card:hover,
+.grandmother-card:hover {
+    background: white;
+}
+
+/* Individual card colors on hover */
+.father-card:hover {
+    background: linear-gradient(135deg, #fff, #E6F3FF);
+}
+
+.mother-card:hover {
+    background: linear-gradient(135deg, #fff, #FFE6F3);
+}
+
+.grandfather-card:hover {
+    background: linear-gradient(135deg, #fff, #E6FFE6);
+}
+
+.grandmother-card:hover {
+    background: linear-gradient(135deg, #fff, #FFF0E6);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .card-emoji {
+        font-size: 2.5rem;
+    }
+
+    .card-toys span {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-emoji {
+        font-size: 2.2rem;
+    }
+
+    .card-toys span {
+        font-size: 1.2rem;
+    }
+}
+
+.grandfather-card .card-emoji,
+.grandmother-card .card-emoji {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .family-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .family-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .family-card {
+        padding: 1.5rem;
+    }
+}
+
+.card-emoji {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.card-toys {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.card-toys span {
+    margin: 0 0.5rem;
+    animation: spin 3s linear infinite;
+}
+
+/* Floating Toys */
+.floating-toys {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.toy-item {
+    position: absolute;
+    font-size: 2rem;
+    animation: float 15s linear infinite;
+}
+
+/* Animations */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes glow {
+    0%, 100% { text-shadow: 0 0 10px rgba(255, 105, 180, 0.5); }
+    50% { text-shadow: 0 0 20px rgba(255, 105, 180, 0.8); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .name {
+        font-size: 2.5rem;
+    }
+
+    .birth-details {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .countdown-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .site-header {
+        gap: 1rem;
+        padding: 1.5rem 1rem;
+    }
+
+    .site-title {
+        font-size: 2.5rem;
+    }
+
+    .baby-emoji {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-frame {
+        width: 200px;
+        height: 200px;
+    }
+
+    .name {
+        font-size: 2rem;
+    }
+
+    .countdown-container {
+        grid-template-columns: 1fr;
+    }
+
+    .site-title {
+        font-size: 2rem;
+    }
+
+    .baby-emoji {
+        font-size: 2rem;
+    }
+}
+
+/* Add these new styles */
+.name-container {
+    position: relative;
+    display: inline-block;
+    margin: 1.5rem 0 0.5rem 0;
+}
+
+.born-text {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.6rem;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 0.6rem 2rem;
+    background: linear-gradient(45deg, #FF69B4, #FF1493);
+    color: white;
+    border-radius: 50px;
+    box-shadow: 
+        0 5px 15px rgba(255, 105, 180, 0.3),
+        0 0 0 3px rgba(255, 255, 255, 0.9),
+        0 0 20px rgba(255, 192, 203, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.born-text::before {
+    content: '👶';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    animation: babyWave 2s infinite;
+}
+
+.born-text::after {
+    content: '🍼';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    animation: bottleRock 2s infinite;
+}
+
+/* Add decorative elements */
+.born-text-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.born-text-wrapper::before,
+.born-text-wrapper::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: 
+        radial-gradient(circle at center,
+            rgba(255, 182, 193, 0.8) 0%,
+            rgba(255, 182, 193, 0) 70%);
+    animation: sparkle 1.5s infinite;
+}
+
+.born-text-wrapper::before {
+    left: -20px;
+    top: -10px;
+}
+
+.born-text-wrapper::after {
+    right: -20px;
+    top: -10px;
+    animation-delay: 0.75s;
+}
+
+/* Add new animations */
+@keyframes babyWave {
+    0%, 100% { transform: translateY(-50%) rotate(0deg); }
+    25% { transform: translateY(-50%) rotate(-20deg); }
+    75% { transform: translateY(-50%) rotate(20deg); }
+}
+
+@keyframes bottleRock {
+    0%, 100% { transform: translateY(-50%) rotate(0deg); }
+    50% { transform: translateY(-50%) rotate(15deg); }
+}
+
+@keyframes sparkle {
+    0%, 100% { 
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% { 
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* Update HTML structure for born text */
+.name-container {
+    position: relative;
+    display: inline-block;
+    margin: 1.5rem 0 0.5rem 0;
+}
+
+/* Media queries for born text */
+@media (max-width: 768px) {
+    .born-text {
+        font-size: 1.5rem;
+        padding: 0.6rem 2.2rem;
+    }
+
+    .born-text::before,
+    .born-text::after {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .born-text {
+        font-size: 1.2rem;
+        padding: 0.5rem 2rem;
+    }
+
+    .born-text::before,
+    .born-text::after {
+        font-size: 1rem;
+    }
+}
+
+/* Update Growing Up Journey styles */
+.age-section {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.8));
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    margin: 3rem 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.age-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.journey-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    padding: 0 0.5rem;
+}
+
+.age-box {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.age-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255, 105, 180, 0.2);
+}
+
+.age-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.age-box span {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    display: block;
+    margin: 0.5rem 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Add hover effects */
+.age-box:hover span {
+    transform: scale(1.1);
+    color: #FF1493;
+    text-shadow: 0 0 10px rgba(255, 20, 147, 0.3);
+}
+
+.age-box:hover .age-icon {
+    transform: scale(1.1) rotate(10deg);
+}
+
+/* Add ripple effect */
+.age-box::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 105, 180, 0.2) 0%, transparent 70%);
+    transition: all 0.5s ease;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+}
+
+.age-box:hover::after {
+    width: 200%;
+    height: 200%;
+    opacity: 1;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .age-box {
+        padding: 1.2rem;
+    }
+    
+    .age-box span {
+        font-size: 1.8rem;
+    }
+    
+    .age-icon {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .age-box {
+        padding: 1rem;
+    }
+    
+    .age-box span {
+        font-size: 1.5rem;
+    }
+    
+    .age-icon {
+        font-size: 1.5rem;
+    }
+}
+
+/* Remove all hover effects and animations */
+.age-box:hover,
+.age-box:hover .age-icon,
+.age-box:hover span {
+    transform: none;
+    animation: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background: var(--card-bg);
+}
+
+/* Remove all pseudo-elements and their effects */
+.age-box::before,
+.age-box::after {
+    display: none;
+}
+
+/* Remove all animation keyframes */
+@keyframes spinBurst, @keyframes numberPop, @keyframes glowPulse, @keyframes burstEffect {
+    to { transform: none; }
+}
+
+/* Update media queries to handle hover effects on mobile */
+@media (hover: none) {
+    .age-box:hover {
+        transform: none;
+    }
+    
+    .age-box:active::before {
+        animation: burstEffect 0.5s ease-out;
+    }
+}
+
+/* Update media queries */
+@media (max-width: 1200px) {
+    .journey-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .journey-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .age-section {
+        padding: 1.5rem 1rem;
+    }
+
+    .age-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .age-box {
+        padding: 0.8rem;
+    }
+
+    .age-icon {
+        font-size: 1.5rem;
+    }
+
+    .age-box span {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .journey-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+
+    .age-box p {
+        font-size: 0.8rem;
+    }
+
+    .age-box span {
+        font-size: 1.5rem;
+    }
+
+    .age-icon {
+        font-size: 1.3rem;
+    }
+}
+
+/* Update Born on section styles */
+.born-text-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -10px;
+    z-index: 2;
+}
+
+.born-text {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.6rem;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 0.6rem 2rem;
+    background: linear-gradient(45deg, #FF69B4, #FF1493);
+    color: white;
+    border-radius: 50px;
+    box-shadow: 
+        0 5px 15px rgba(255, 105, 180, 0.3),
+        0 0 0 3px rgba(255, 255, 255, 0.9),
+        0 0 20px rgba(255, 192, 203, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.born-text::before {
+    content: '👶';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    animation: babyWave 2s infinite;
+}
+
+.born-text::after {
+    content: '🍼';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    animation: bottleRock 2s infinite;
+}
+
+/* Add decorative elements */
+.born-text-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.born-text-wrapper::before,
+.born-text-wrapper::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: 
+        radial-gradient(circle at center,
+            rgba(255, 182, 193, 0.8) 0%,
+            rgba(255, 182, 193, 0) 70%);
+    animation: sparkle 1.5s infinite;
+}
+
+.born-text-wrapper::before {
+    left: -20px;
+    top: -10px;
+}
+
+.born-text-wrapper::after {
+    right: -20px;
+    top: -10px;
+    animation-delay: 0.75s;
+}
+
+/* Add new animations */
+@keyframes babyWave {
+    0%, 100% { transform: translateY(-50%) rotate(0deg); }
+    25% { transform: translateY(-50%) rotate(-20deg); }
+    75% { transform: translateY(-50%) rotate(20deg); }
+}
+
+@keyframes bottleRock {
+    0%, 100% { transform: translateY(-50%) rotate(0deg); }
+    50% { transform: translateY(-50%) rotate(15deg); }
+}
+
+@keyframes sparkle {
+    0%, 100% { 
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% { 
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* Update HTML structure for born text */
+.name-container {
+    position: relative;
+    display: inline-block;
+    margin: 1.5rem 0 0.5rem 0;
+}
+
+/* Media queries for born text */
+@media (max-width: 768px) {
+    .born-text {
+        font-size: 1.5rem;
+        padding: 0.6rem 2.2rem;
+    }
+
+    .born-text::before,
+    .born-text::after {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .born-text {
+        font-size: 1.2rem;
+        padding: 0.5rem 2rem;
+    }
+
+    .born-text::before,
+    .born-text::after {
+        font-size: 1rem;
+    }
+}
+
+/* Update Growing Up Journey styles */
+.age-section {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.8));
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    margin: 3rem 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.age-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.journey-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    padding: 0 0.5rem;
+}
+
+.age-box {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.age-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255, 105, 180, 0.2);
+}
+
+.age-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.age-box span {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    display: block;
+    margin: 0.5rem 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Add hover effects */
+.age-box:hover span {
+    transform: scale(1.1);
+    color: #FF1493;
+    text-shadow: 0 0 10px rgba(255, 20, 147, 0.3);
+}
+
+.age-box:hover .age-icon {
+    transform: scale(1.1) rotate(10deg);
+}
+
+/* Add ripple effect */
+.age-box::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 105, 180, 0.2) 0%, transparent 70%);
+    transition: all 0.5s ease;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+}
+
+.age-box:hover::after {
+    width: 200%;
+    height: 200%;
+    opacity: 1;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .age-box {
+        padding: 1.2rem;
+    }
+    
+    .age-box span {
+        font-size: 1.8rem;
+    }
+    
+    .age-icon {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .age-box {
+        padding: 1rem;
+    }
+    
+    .age-box span {
+        font-size: 1.5rem;
+    }
+    
+    .age-icon {
+        font-size: 1.5rem;
+    }
+}
+
+/* Remove all hover effects and animations */
+.age-box:hover,
+.age-box:hover .age-icon,
+.age-box:hover span {
+    transform: none;
+    animation: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background: var(--card-bg);
+}
+
+/* Remove all pseudo-elements and their effects */
+.age-box::before,
+.age-box::after {
+    display: none;
+}
+
+/* Remove all animation keyframes */
+@keyframes spinBurst, @keyframes numberPop, @keyframes glowPulse, @keyframes burstEffect {
+    to { transform: none; }
+}
+
+/* Update media queries to handle hover effects on mobile */
+@media (hover: none) {
+    .age-box:hover {
+        transform: none;
+    }
+    
+    .age-box:active::before {
+        animation: burstEffect 0.5s ease-out;
+    }
+}
+
+/* Update media queries */
+@media (max-width: 1200px) {
+    .journey-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .journey-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .age-section {
+        padding: 1.5rem 1rem;
+    }
+
+    .age-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .age-box {
+        padding: 0.8rem;
+    }
+
+    .age-icon {
+        font-size: 1.5rem;
+    }
+
+    .age-box span {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .journey-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+
+    .age-box p {
+        font-size: 0.8rem;
+    }
+
+    .age-box span {
+        font-size: 1.5rem;
+    }
+
+    .age-icon {
+        font-size: 1.3rem;
+    }
+}
+
+/* Update Born on section styles */
+.born-text-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -10px;
+    z-index: 2;
+}
+
+.born-text {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.6rem;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 0.6rem 2rem;
+    background: linear-gradient(45deg, #FF69B4, #FF1493);
+    color: white;
+    border-radius: 50px;
+    box-shadow: 
+        0 5px 15px rgba(255, 105, 180, 0.3),
+        0 0 0 3px rgba(255, 255, 255, 0.9),
+        0 0 20px rgba(255, 192, 203, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.born-text-content {
+    position: relative;
+    z-index: 2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.baby-icons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.baby-icons span {
+    font-size: 1.2rem;
+    animation: iconDance 2s ease-in-out infinite;
+}
+
+.baby-rattle { animation-delay: 0s; }
+.baby-heart { animation-delay: 0.3s; }
+.baby-star { animation-delay: 0.6s; }
+
+@keyframes floatBornText {
+    0%, 100% {
+        transform: translateY(-15px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes iconDance {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(15deg);
+    }
+}
+
+/* Add sparkle effects */
+.born-text::before,
+.born-text::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle at center,
+        rgba(255, 255, 255, 0.8) 0%,
+        rgba(255, 255, 255, 0) 70%);
+    animation: sparkleEffect 2s infinite;
+}
+
+.born-text::before {
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.born-text::after {
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation-delay: 1s;
+}
+
+@keyframes sparkleEffect {
+    0%, 100% { 
+        opacity: 0;
+        transform: translateY(-50%) scale(0.5);
+    }
+    50% { 
+        opacity: 1;
+        transform: translateY(-50%) scale(1.2);
+    }
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .born-text {
+        font-size: 1.4rem;
+        padding: 0.5rem 1.8rem;
+    }
+
+    .baby-icons span {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .born-text {
+        font-size: 1.2rem;
+        padding: 0.4rem 1.5rem;
+    }
+
+    .baby-icons span {
+        font-size: 0.9rem;
+    }
+
+    .born-text::before,
+    .born-text::after {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Remove the album-section styles and add these new styles */
+.album-button-container {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.album-button {
+    position: relative;
+    padding: 1rem 2.5rem;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.8rem;
+    color: white;
+    background: linear-gradient(45deg, #FF69B4, #FF1493);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 5px 15px rgba(255, 105, 180, 0.3),
+        0 0 0 3px rgba(255, 255, 255, 0.8),
+        0 0 20px rgba(255, 192, 203, 0.5);
+}
+
+.album-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 8px 25px rgba(255, 105, 180, 0.4),
+        0 0 0 3px rgba(255, 255, 255, 0.9),
+        0 0 30px rgba(255, 192, 203, 0.6);
+}
+
+.album-button:active {
+    transform: translateY(-1px);
+}
+
+.album-button-icon {
+    margin-right: 10px;
+    font-size: 2rem;
+    vertical-align: middle;
+}
+
+.album-button-text {
+    vertical-align: middle;
+}
+
+.button-sparkles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.button-sparkles::before,
+.button-sparkles::after {
+    content: '✨';
+    position: absolute;
+    opacity: 0;
+    animation: sparkleButton 2s linear infinite;
+}
+
+.button-sparkles::before {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.button-sparkles::after {
+    right: 10%;
+    animation-delay: 1s;
+}
+
+@keyframes sparkleButton {
+    0% {
+        transform: translateY(0) scale(0);
+    opacity: 0;
+    }
+    50% {
+        transform: translateY(-20px) scale(1.2);
+    opacity: 1;
+    }
+    100% {
+        transform: translateY(-40px) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Update Gallery Popup Header */
+.gallery-header {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .album-button {
+        font-size: 1.5rem;
+        padding: 0.8rem 2rem;
+    }
+
+    .album-button-icon {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .album-button {
+        font-size: 1.3rem;
+        padding: 0.7rem 1.8rem;
+    }
+
+    .album-button-icon {
+        font-size: 1.5rem;
+    }
+}
+
+/* Remove hover effects */
+.age-box:hover,
+.countdown-box:hover,
+.family-card:hover,
+.baby-emoji:hover,
+.album-button:hover {
+    transform: none;
+    box-shadow: inherit;
+}
+
+.frame-decorations:hover {
+    animation-play-state: running;
+}
+
+.profile-frame:hover .frame-decorations {
+    animation-play-state: running;
+}
+
+/* Born on button and birth details container */
+.born-text-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -10px;
+    z-index: 2;
+}
+
+/* Rope styling for Born on button */
+.born-text::before {
+    content: '';
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    width: 6px;
+    height: 25px;
+    background: repeating-linear-gradient(
+        45deg,
+        #8B4513,
+        #8B4513 2px,
+        #A0522D 2px,
+        #A0522D 4px
+    );
+    transform: translateX(-50%);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+/* Rope for birth details */
+.birth-details::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    width: 6px;
+    height: 30px;
+    background: repeating-linear-gradient(
+        45deg,
+        #8B4513,
+        #8B4513 2px,
+        #A0522D 2px,
+        #A0522D 4px
+    );
+    transform-origin: top center;
+    animation: snakeRope 6s ease-in-out infinite;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+/* Enhanced rope animation for birth details */
+@keyframes snakeRope {
+    0% {
+        transform: translateX(-50%) rotate(-3deg) scaleY(1.02);
+    }
+    20% {
+        transform: translateX(-48%) rotate(4deg) scaleY(0.98);
+    }
+    40% {
+        transform: translateX(-52%) rotate(-2deg) scaleY(1.03);
+    }
+    60% {
+        transform: translateX(-48%) rotate(3deg) scaleY(0.97);
+    }
+    80% {
+        transform: translateX(-51%) rotate(-1deg) scaleY(1.01);
+    }
+    100% {
+        transform: translateX(-50%) rotate(-3deg) scaleY(1.02);
+    }
+}
+
+/* Update panel swing animation */
+@keyframes swingPanel {
+    0% {
+        transform: rotate(-2deg) translateY(1px) translateX(1px);
+    }
+    20% {
+        transform: rotate(3deg) translateY(-2px) translateX(-2px);
+    }
+    40% {
+        transform: rotate(-1.5deg) translateY(2px) translateX(1.5px);
+    }
+    60% {
+        transform: rotate(2deg) translateY(-1.5px) translateX(-1px);
+    }
+    80% {
+        transform: rotate(-1deg) translateY(1px) translateX(0.5px);
+    }
+    100% {
+        transform: rotate(-2deg) translateY(1px) translateX(1px);
+    }
+}
+
+/* Update birth details animation timing */
+.birth-details {
+    animation: swingPanel 6s ease-in-out infinite;
+    transform-origin: top center;
+    transition: all 0.3s ease;
+}
+
+/* Add rope texture overlay */
+.born-text::after,
+.birth-details::after {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: calc(50% + 3px);
+    width: 2px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    transform-origin: top center;
+    animation: swingRope 5s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .birth-details::before,
+    .born-text::before {
+        width: 4px;
+        height: 20px;
+        background-size: 4px 4px;
+    }
+    
+    .birth-details::after,
+    .born-text::after {
+        width: 1px;
+        height: 20px;
+        left: calc(50% + 2px);
+    }
+}
+
+@media (max-width: 480px) {
+    .birth-details::before,
+    .born-text::before {
+        width: 3px;
+        height: 15px;
+        background-size: 3px 3px;
+    }
+    
+    .birth-details::after,
+    .born-text::after {
+        width: 1px;
+        height: 15px;
+        left: calc(50% + 1.5px);
+    }
+}
+
+/* Remove all animations from Born on button */
+.born-text {
+    position: relative;
+    animation: none; /* Remove swing animation */
+    transform: none; /* Remove any transforms */
+    transition: none; /* Remove transitions */
+}
+
+/* Keep rope static for Born on button */
+.born-text::before {
+    content: '';
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    width: 6px;
+    height: 25px;
+    background: repeating-linear-gradient(
+        45deg,
+        #8B4513,
+        #8B4513 2px,
+        #A0522D 2px,
+        #A0522D 4px
+    );
+    transform: translateX(-50%); /* Only center the rope */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    animation: none; /* Remove rope animation */
+}
+
+/* Remove the rope highlight effect */
+.born-text::after {
+    display: none;
+}
+
+/* Keep birth details animations */
+.birth-details {
+    animation: swingPanel 6s ease-in-out infinite;
+    transform-origin: top center;
+    transition: all 0.3s ease;
+}
+
+/* Birth details continuous animation */
+.birth-details {
+    animation: smoothSwing 4s ease-in-out infinite;
+    transform-origin: top center;
+    position: relative;
+    margin-top: 20px;
+}
+
+/* Smooth continuous swing animation */
+@keyframes smoothSwing {
+    0% {
+        transform: rotate(-3deg);
+    }
+    25% {
+        transform: rotate(3deg);
+    }
+    50% {
+        transform: rotate(-3deg);
+    }
+    75% {
+        transform: rotate(3deg);
+    }
+    100% {
+        transform: rotate(-3deg);
+    }
+}
+
+/* Rope animation */
+.birth-details::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    width: 4px;
+    height: 30px;
+    background: repeating-linear-gradient(
+        45deg,
+        #8B4513,
+        #8B4513 2px,
+        #A0522D 2px,
+        #A0522D 4px
+    );
+    transform-origin: top center;
+    animation: ropeSwing 4s ease-in-out infinite;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+/* Smooth rope swing animation */
+@keyframes ropeSwing {
+    0% {
+        transform: translateX(-50%) rotate(-3deg);
+    }
+    25% {
+        transform: translateX(-50%) rotate(3deg);
+    }
+    50% {
+        transform: translateX(-50%) rotate(-3deg);
+    }
+    75% {
+        transform: translateX(-50%) rotate(3deg);
+    }
+    100% {
+        transform: translateX(-50%) rotate(-3deg);
+    }
+}
+
+/* Born on button styles */
+.born-text {
+    position: relative;
+    padding: 0.8rem 1.6rem;
+        font-size: 1.3rem;
+    font-family: 'Bubblegum Sans', cursive;
+    font-weight: 700;
+    background: linear-gradient(45deg, #FF9ECD, #FFB6E6, #FFC4D6);
+    border-radius: 15px;
+    color: #FF1493;
+    text-shadow: 
+        2px 2px 0 rgba(255, 255, 255, 0.9),
+        -1px -1px 0 rgba(255, 255, 255, 0.9);
+    box-shadow: 
+        0 4px 15px rgba(255, 105, 180, 0.3),
+        inset 0 -4px 0 rgba(255, 105, 180, 0.2),
+        inset 0 2px 4px rgba(255, 255, 255, 0.5);
+    border: 2.5px solid rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.born-text-content {
+    display: block;
+    letter-spacing: 1px;
+    margin-bottom: 0.3rem;
+}
+
+/* Baby icons in Born on button */
+.baby-icons {
+    margin-top: 0.4rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.baby-icons span {
+    font-size: 1.1rem;
+    filter: drop-shadow(0 2px 2px rgba(255, 105, 180, 0.3));
+    animation: wobble 2s ease-in-out infinite;
+}
+
+/* Only keep cake and milk bottle emojis */
+.baby-icons .baby-rattle,
+.baby-icons .baby-heart {
+    display: inline-block;
+}
+
+.baby-icons .baby-star {
+    display: none; /* Hide the tie emoji */
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .born-text {
+        padding: 0.7rem 1.4rem;
+        font-size: 1.2rem;
+    }
+
+    .baby-icons span {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .born-text {
+        padding: 0.6rem 1.2rem;
+        font-size: 1.1rem;
+        gap: 0.6rem;
+    }
+
+    .baby-icons span {
+        font-size: 1rem;
+    }
+}
+
+/* Born on button styles */
+.born-text {
+    position: relative;
+    padding: 0.8rem 1.6rem;
+        font-size: 1.3rem;
+    font-family: 'Bubblegum Sans', cursive;
+    font-weight: 700;
+    background: linear-gradient(45deg, #FF9ECD, #FFB6E6, #FFC4D6);
+    border-radius: 15px;
+    color: #FF1493;
+    text-shadow: 
+        2px 2px 0 rgba(255, 255, 255, 0.9),
+        -1px -1px 0 rgba(255, 255, 255, 0.9);
+    box-shadow: 
+        0 4px 15px rgba(255, 105, 180, 0.3),
+        inset 0 -4px 0 rgba(255, 105, 180, 0.2),
+        inset 0 2px 4px rgba(255, 255, 255, 0.5);
+    border: 2.5px solid rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.born-text-content {
+    display: block;
+    letter-spacing: 1px;
+}
+
+/* Baby icons in Born on button */
+.baby-icons {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.baby-icons span {
+    font-size: 1.2rem;
+    filter: drop-shadow(0 2px 2px rgba(255, 105, 180, 0.3));
+}
+
+.baby-icons .baby-heart {
+    order: -1; /* Move milk bottle to the left */
+}
+
+.baby-icons .baby-rattle {
+    order: 1; /* Move cake to the right */
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .born-text {
+        padding: 0.7rem 1.4rem;
+        font-size: 1.2rem;
+        gap: 0.8rem;
+    }
+
+    .baby-icons span {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .born-text {
+        padding: 0.6rem 1.2rem;
+        font-size: 1.1rem;
+        gap: 0.6rem;
+    }
+
+    .baby-icons span {
+        font-size: 1rem;
+    }
+}
+
+/* Update spacing for counters section */
+.counters-section {
+    padding: 0;
+    margin: 1rem 0 3rem 0;
+}
+
+.counters-container {
+    display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Update birth details margin */
+.birth-details {
+    margin-bottom: 2rem;
+}
+
+/* Counters Section Styles */
+.counters-section {
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.counters-container {
+    display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.counter-box {
+    background: linear-gradient(45deg, #FFE6F3, #FFF0F5);
+    border-radius: 20px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 
+        0 10px 30px rgba(255, 182, 193, 0.2),
+        inset 0 2px 4px rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.counter-box h2 {
+    color: #9C27B0;
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+    font-family: 'Bubblegum Sans', cursive;
+    text-shadow: 
+        0 0 5px rgba(156, 39, 176, 0.3),
+        0 0 10px rgba(156, 39, 176, 0.2),
+        1px 1px 2px rgba(255, 255, 255, 0.8),
+        -1px -1px 2px rgba(255, 255, 255, 0.8);
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+}
+
+.counter-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.5rem;
+}
+
+.counter-item {
+    background: white;
+    padding: 0.8rem;
+    border-radius: 15px;
+    box-shadow: 
+        0 5px 15px rgba(255, 182, 193, 0.15),
+        inset 0 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.counter-item span {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FF1493;
+    display: block;
+    margin-bottom: 0.3rem;
+    font-family: 'Fredoka', sans-serif;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.counter-item p {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .counters-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .counter-box h2 {
+        font-size: 1.3rem;
+    }
+
+    .counter-item span {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .counter-box {
+        padding: 1.2rem;
+    }
+
+    .counter-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+    }
+
+    .counter-item {
+        padding: 0.6rem;
+    }
+
+    .counter-item span {
+        font-size: 1.5rem;
+    }
+
+    .counter-item p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Add specific styles for very small screens */
+@media (max-width: 360px) {
+    .counter-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.4rem;
+    }
+
+    .counter-item {
+        padding: 0.4rem;
+    }
+
+    .counter-item span {
+        font-size: 1.2rem;
+    }
+
+    .counter-item p {
+        font-size: 0.75rem;
+    }
+
+    .counter-box h2 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Add some spacing between rows in mobile view */
+@media (max-width: 768px) {
+    .counter-grid {
+        row-gap: 0.8rem;
+    }
+}
+
+/* Ensure container doesn't overflow */
+.counters-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.counter-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+    .counter-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .counter-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+}
+
+.birth-detail-item .detail-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #FF1493;
+    margin-left: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .birth-detail-item .detail-text {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .birth-detail-item .detail-text {
+        font-size: 0.85rem;
+    }
+}
+
+/* Gallery Popup Styles */
+.gallery-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.gallery-content {
+    background: white;
+    border-radius: 20px;
+    width: 95%;
+    max-width: 1200px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 2rem;
+    position: relative;
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(255, 105, 180, 0.1);
+    position: relative;
+}
+
+.gallery-header h2 {
+    font-family: 'Bubblegum Sans', cursive;
+    color: #FF1493;
+    font-size: 2.2rem;
+    margin: 0;
+    text-shadow: 
+        2px 2px 0 rgba(255, 255, 255, 0.8),
+        -1px -1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.close-gallery {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    color: #FF1493;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.close-gallery:hover {
+    transform: rotate(90deg);
+    background: #FF1493;
+    color: white;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .gallery-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .close-gallery {
+        width: 35px;
+        height: 35px;
+    font-size: 1.5rem;
+        top: -12px;
+        right: -12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-content {
+        padding: 1.5rem;
+    }
+    
+    .gallery-header {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+    }
+    
+    .gallery-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .close-gallery {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2rem;
+    top: -10px;
+        right: -10px;
+    }
+}
+
+/* Gallery Grid Styles */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.photo-box {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.photo-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
+}
+
+.photo-frame {
+    aspect-ratio: 1;
+    overflow: hidden;
+    border: 3px solid #FFE6F3;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.photo-box:hover .photo-frame img {
+    transform: scale(1.05);
+}
+
+.photo-caption {
+    padding: 1rem;
+    text-align: center;
+    font-family: 'Bubblegum Sans', cursive;
+    color: #FF1493;
+        font-size: 1.2rem;
+    background: linear-gradient(45deg, #FFE6F3, #FFF0F5);
+    border-top: 2px solid #FFE6F3;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+
+    .photo-box:nth-child(n+7) {
+        display: none; /* Hide boxes after the 6th on mobile */
+    }
+
+    .photo-caption {
+        padding: 0.8rem;
+        font-size: 1.1rem;
+    }
+
+    .photo-frame {
+        border-width: 2px;
+    }
+}
+
+/* Footer Styles */
+.site-footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+    background: linear-gradient(45deg, #FFE6F3, #FFF0F5);
+    border-top: 2px solid rgba(255, 105, 180, 0.1);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.copyright {
+    font-family: 'Quicksand', sans-serif;
+    color: #FF1493;
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.heart-icon {
+    display: inline-block;
+    animation: heartbeat 1.5s ease infinite;
+}
+
+.author-link {
+    color: #FF1493;
+    text-decoration: none;
+    position: relative;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.author-link:hover {
+    color: #FF69B4;
+}
+
+.author-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: #FF1493;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.author-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Media Queries */
+@media (max-width: 480px) {
+    .site-footer {
+        padding: 1rem 0;
+        margin-top: 1.5rem;
+    }
+
+    .copyright {
+        font-size: 0.9rem;
+    }
+}
+
+/* Loading Screen Styles */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #FFE6F3, #FFF0F5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.milk-bottle {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    animation: bottleRotate 2s infinite ease-in-out;
+}
+
+.loading-text {
+    font-family: 'Bubblegum Sans', cursive;
+    color: #FF1493;
+        font-size: 1.5rem;
+    text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.8);
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes bottleRotate {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.2);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+/* Media Queries */
+@media (max-width: 480px) {
+    .milk-bottle {
+        font-size: 3rem;
+    }
+    
+    .loading-text {
+        font-size: 1.2rem;
+    }
+}
+
+/* Fullscreen Image Viewer Styles */
+.fullscreen-viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.viewer-content {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.viewer-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    user-select: none;
+}
+
+.close-viewer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    z-index: 10001;
+    transition: transform 0.3s ease;
+}
+
+.close-viewer:hover {
+    transform: rotate(90deg);
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 1rem 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+/* Touch swipe animation */
+.viewer-image.swipe-left {
+    animation: swipeLeft 0.3s ease-out;
+}
+
+.viewer-image.swipe-right {
+    animation: swipeRight 0.3s ease-out;
+}
+
+@keyframes swipeLeft {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes swipeRight {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .nav-btn {
+        font-size: 1.5rem;
+        padding: 0.8rem 0.6rem;
+    }
+    
+    .close-viewer {
+        font-size: 2rem;
+        top: 15px;
+        right: 15px;
+    }
+}
