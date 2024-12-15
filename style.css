@@ -105,6 +105,43 @@
         opacity: 0.5;
     }
 }
+/* Add flip effect styles */
+.flip-name {
+    display: inline-block;
+    position: relative;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.flip-front,
+.flip-back {
+    display: inline-block;
+    backface-visibility: hidden;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.flip-front {
+    position: relative;
+}
+
+.flip-back {
+    transform: rotateX(180deg);
+}
+
+.flip-name:hover .flip-front,
+.flip-name.flipped .flip-front {
+    transform: rotateX(-180deg);
+}
+
+.flip-name:hover .flip-back,
+.flip-name.flipped .flip-back {
+    transform: rotateX(0);
+}
 
 /* Update media queries for header */
 @media (max-width: 768px) {
@@ -925,7 +962,6 @@ body {
 
 .card-toys span {
     margin: 0 0.5rem;
-    animation: spin 3s linear infinite;
 }
 
 /* Floating Toys */
@@ -1755,10 +1791,10 @@ body {
 .baby-star { animation-delay: 0.6s; }
 
 @keyframes floatBornText {
-    0%, 100% {
+    0%, 100% { 
         transform: translateY(-15px);
     }
-    50% {
+    50% { 
         transform: translateY(-20px);
     }
 }
@@ -1773,8 +1809,8 @@ body {
 }
 
 /* Add sparkle effects */
-.born-text::before,
-.born-text::after {
+    .born-text::before,
+    .born-text::after {
     content: '';
     position: absolute;
     width: 30px;
@@ -2186,7 +2222,7 @@ body {
     25% {
         transform: rotate(3deg);
     }
-    50% {
+    50% { 
         transform: rotate(-3deg);
     }
     75% {
@@ -2505,7 +2541,7 @@ body {
     .counter-box {
         padding: 1.2rem;
     }
-
+    
     .counter-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.6rem;
@@ -2655,7 +2691,7 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    font-size: 1.8rem;
+        font-size: 1.8rem;
     color: #FF1493;
     cursor: pointer;
     display: flex;
@@ -2698,7 +2734,7 @@ body {
     }
     
     .gallery-header h2 {
-        font-size: 1.5rem;
+    font-size: 1.5rem;
     }
 
     .close-gallery {
