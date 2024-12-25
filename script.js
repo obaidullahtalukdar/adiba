@@ -147,8 +147,8 @@ function adjustGalleryItems() {
     
     photoBoxes.forEach((box, index) => {
         if (isMobile) {
-            // Show only first 6 items on mobile
-            box.style.display = index < 6 ? 'block' : 'none';
+            // Show all items on Mobile screens
+            box.style.display = 'block';
         } else {
             // Show all items on larger screens
             box.style.display = 'block';
