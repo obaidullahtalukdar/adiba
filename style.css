@@ -2808,11 +2808,6 @@ body {
         gap: 1rem;
         padding: 0.5rem;
     }
-
-    .photo-box:nth-child(n+7) {
-        display: none; /* Hide boxes after the 6th on mobile */
-    }
-
     .photo-caption {
         padding: 0.8rem;
         font-size: 1.1rem;
